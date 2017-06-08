@@ -1,5 +1,6 @@
 import rpyc
 import sys
+import time
 
 try:
 	arg = sys.argv[1]
@@ -9,9 +10,13 @@ except IndexError:
 	
 conn = rpyc.connect(sys.argv[1], 18861)
 code = open('python_code.txt', 'r')
-if conn.root.get_answer(code.read()) == True:
+if conn.root.send_and_check_code(code.read()) == True:
 	print('Code can be compiled successfully!')
 	print('Result of executing sent code:')
 	print(conn.root.execute_code())
+	print(conn.root.compare_codes())
 else:
 	print('Errors in Code!')
+code.close()
+
+

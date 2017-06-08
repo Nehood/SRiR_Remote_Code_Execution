@@ -9,3 +9,6 @@ Requirements:
 How to install:
 	Download latest version of python from https://www.python.org/
 	Follow instructions from RPYC official website - https://rpyc.readthedocs.io/en/latest/#
+	
+How to use:
+	
