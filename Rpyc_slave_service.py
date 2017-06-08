@@ -1,6 +1,7 @@
 import rpyc
 import ast
 import os
+import sys
 
 from rpyc.utils.server import ThreadedServer
 
@@ -94,6 +95,12 @@ class MyService(rpyc.Service):
 	
 if __name__ == "__main__":
 	
+	try:
+		arg = sys.argv[1]
+	except IndexError:
+		print('Proper usage of script: python Rpyc_slave_service IP_Address')
+		sys.exit(1)
+	
 	DIRECTORY = os.path.join(os.getcwd(), FILE_PATH) # lokalizacja, w ktorej bedziemy zapisywac otrzymane od klientow kody
 	if not os.path.exists(DIRECTORY): # jesli folder nie istnieje, utworz go
 		os.makedirs(FILE_PATH)
@@ -102,5 +109,5 @@ if __name__ == "__main__":
 		for f in filelist:		# usun cala zawartosc
 			os.remove(os.path.join(DIRECTORY, f))
 	
-	thread = ThreadedServer(MyService, port = PORT)
+	thread = ThreadedServer(MyService, hostname = sys.argv[1], port = PORT)
 	thread.start()
