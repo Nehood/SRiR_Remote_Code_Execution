@@ -11,4 +11,12 @@ How to install:
 	Follow instructions from RPYC official website - https://rpyc.readthedocs.io/en/latest/#
 	
 How to use:
+	Run Rpyc_slave_service.py on server machine (double click or via command line -> python Rpyc_slave_service.py)
+	On client(s) machine run from command line using: python Rpyc_client.py <IP_address_of_server_machine>
 	
+How it works:
+	Client program sends code written in python_code.txt (must be written in similar fashion, i.e. must store result in
+	temporary file) to the server, where it's checked for code errors. If none are found, code is executed and the result
+	is sent back to the client. Additonally the server stores codes sent from all clients (within running session), and
+	compares them with latest code being sent. As result, information whether codes are the same or have differences
+	are sent back to the client.

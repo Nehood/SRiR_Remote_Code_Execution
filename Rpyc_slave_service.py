@@ -4,6 +4,7 @@ import os
 
 from rpyc.utils.server import ThreadedServer
 
+PORT = 18861
 FILE_PATH = 'Received_codes'	# folder, w ktorym skladowane sa zapamietanie kody przeslane przez uzytkownikow
 DIRECTORY = None			# sciezka do pliku z zapisanymi kodami
 TMP_FILE = 'tmp.txt'	# plik tymaczsowy, uzywany do zapisania wyniku dzialania skryptu
@@ -101,5 +102,5 @@ if __name__ == "__main__":
 		for f in filelist:		# usun cala zawartosc
 			os.remove(os.path.join(DIRECTORY, f))
 	
-	thread = ThreadedServer(MyService, hostname = "localhost", port = 18861) #hostname = "localhost" can be probably deleted
+	thread = ThreadedServer(MyService, port = PORT)
 	thread.start()
