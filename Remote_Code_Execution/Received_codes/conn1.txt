@@ -1,0 +1,14 @@
+import sys
+import os
+
+
+def main():
+	TMP_FILE = 'tmp.txt'
+	for num in range(1,3):
+		print('cos asqwgazxcsxs qaadbd tavxzasdam')
+	with open(TMP_FILE, 'w') as tmp_file:
+		tmp_file.write('Wielki sukces!')
+	return('Wielki sukces!')
+		
+if __name__ == "__main__":
+	main()

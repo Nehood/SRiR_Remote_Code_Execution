@@ -17,6 +17,7 @@ if conn.root.send_and_check_code(code.read()) == True:
 	print('Result of executing sent code:')
 	print(conn.root.execute_code())
 	print(conn.root.compare_codes())
+	conn.close()
 else:
 	print('Errors in Code!')
 code.close()

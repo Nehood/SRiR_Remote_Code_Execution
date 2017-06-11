@@ -13,7 +13,7 @@ How to install:
 	To install nosetests simply write in command line pip install nosetests
 	
 How to use:
-	Run Rpyc_slave_service.py on server machine via command line -> python Rpyc_slave_service.py
+	Run Rpyc_slave_service.py on server machine via command line -> python Rpyc_slave_service.py <IP_address_of_server_machine>
 	On client(s) machine run from command line using: python Rpyc_client.py <IP_address_of_server_machine>
 	
 How it works:
